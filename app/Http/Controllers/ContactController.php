@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ContactMail;
+use App\Models\MailSubject;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
     public function contact(){
-        return view('contact-us');
+        $mailOptions = MailSubject::all();
+        return view('contact-us', compact('mailOptions'));
     }
 
     public function sendEmail(Request $request){

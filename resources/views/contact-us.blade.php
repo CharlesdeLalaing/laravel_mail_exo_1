@@ -31,12 +31,18 @@
                                 class="border-solid border-gray-400 border-2 p-3 md:text-xl w-full" placeholder="Name" />
                         </div>
                         <div class="col-span-2 lg:col-span-3">
-                            <input type="text" name="subject"
-                                class="border-solid border-gray-400 border-2 p-3 md:text-xl w-full" placeholder="Subject" />
+                            <select type="text" name="subject"
+                                class="border-solid border-gray-400 border-2 p-3 md:text-xl w-full">
+                                <option selected>Pick Size</option>
+                                @foreach ($mailOptions as $mailOption)
+                                    <option value={{ $mailOption->subject }}>{{ $mailOption->subject }}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="col-span-2 lg:col-span-3">
-                            <input type="text" name="email" class="border-solid border-gray-400 border-2 p-3 md:text-xl w-full"
-                                value={{ Auth::user()->email}} />
+                            <input type="text" name="email"
+                                class="border-solid border-gray-400 border-2 p-3 md:text-xl w-full"
+                                value={{ Auth::user()->email }} />
                         </div>
                         <div class="col-span-2 lg:col-span-3">
                             <textarea cols="30" name="message" rows="8"
