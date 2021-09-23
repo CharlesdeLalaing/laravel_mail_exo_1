@@ -12,7 +12,6 @@
                     You're logged in!
                 </div>
             </div>
-            @include('contact-us')
         </div>
     </div>
 </x-app-layout>
